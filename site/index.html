@@ -62,6 +62,7 @@ p{margin:0}
 .nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;min-width:0}
 .nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
 .nav a:hover{color:var(--ink)}
+.nav a.nav-li{color:var(--accent);font-weight:600}
 
 /* hero */
 .hero{border-bottom:1px solid var(--rule);background-color:var(--paper);
@@ -256,6 +257,7 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--pap
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
+      <a class="nav-li" href="#contact" data-use="linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
     </nav>
   </div>
 </header>
@@ -271,11 +273,12 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--pap
       <div class="cta">
         <a class="btn primary" href="#work">View case studies</a>
         <a class="btn ghost" href="#certifications">See certifications</a>
+        <a class="btn ghost" href="#contact" data-use="linkedin" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
       </div>
     </div>
     <figure class="portrait" style="margin:0">
       <img src="images/portrait.jpg" width="480" height="640" alt="Portrait of Syed Muhammad Hamza">
-      <figcaption class="tag"><span class="dot" aria-hidden="true"></span>Open to roles<b>UAE · KSA · EU · Canada · Australia · USA</b></figcaption>
+      <figcaption class="tag"><span class="dot" aria-hidden="true"></span>Currently<b>System &amp; Cloud Engineer · LMKR</b></figcaption>
     </figure>
   </div>
   <div class="wrap" style="padding-left:0;padding-right:0">
@@ -591,12 +594,12 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--pap
   <div class="wrap contact">
     <div>
       <div class="eyebrow">Contact</div>
-      <h2 style="margin-top:12px">Hiring for cloud or DevOps?</h2>
-      <p class="lead">I'm open to Cloud, DevOps and Platform Engineering roles in the UAE, Saudi Arabia, Europe, Canada, Australia and the USA, on-site or remote.</p>
+      <h2 style="margin-top:12px">Let's connect</h2>
+      <p class="lead">Working on cloud architecture, DevOps automation or cloud security? I'm always glad to connect with engineers, teams and businesses and exchange ideas on building reliable, secure platforms.</p>
       <div class="links">
-        <!-- EDIT: replace the example email and LinkedIn link with your own -->
-        <a class="btn primary" href="mailto:you@example.com">you@example.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/your-profile/" target="_blank" rel="noopener">LinkedIn profile ↗</a>
+        <!-- EDIT: put your LinkedIn URL and email in the two links below. This is the only place to edit: the LinkedIn buttons in the header and at the top of the page copy these automatically. -->
+        <a class="btn primary" data-contact="linkedin" href="https://www.linkedin.com/in/your-profile/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+        <a class="btn" data-contact="email" href="mailto:you@example.com">you@example.com</a>
       </div>
     </div>
     <div class="edu">
@@ -615,6 +618,11 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--pap
 
 <script>
 (function(){
+  // LinkedIn buttons reuse the link from the Contact section (edit it there only)
+  var li=document.querySelector('a[data-contact="linkedin"]');
+  [].slice.call(document.querySelectorAll('a[data-use="linkedin"]')).forEach(function(a){
+    if(li&&li.href.indexOf('your-profile')<0){a.href=li.href}else{a.removeAttribute('target');a.removeAttribute('rel')}
+  });
   var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
   function select(t,focus){
     tabs.forEach(function(x){
