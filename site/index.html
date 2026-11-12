@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamza Cloud Portfolio</title>
+<meta name="description" content="Cloud & DevOps Engineer: AWS, Microsoft Azure and Oracle Cloud. Six certifications and seven architecture case studies covering Kubernetes, CI/CD, Azure Virtual Desktop, Zero Trust and disaster recovery.">
+<!-- EDIT: if you add a custom domain, replace https://syedhamza161.github.io/portfolio in the lines below -->
+<link rel="canonical" href="https://syedhamza161.github.io/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Syed Muhammad Hamza · Cloud & DevOps Engineer">
+<meta property="og:description" content="Six AWS and Microsoft certifications and seven architecture case studies: Kubernetes, CI/CD, Azure Virtual Desktop, Zero Trust and disaster recovery.">
+<meta property="og:url" content="https://syedhamza161.github.io/portfolio/">
+<meta property="og:image" content="https://syedhamza161.github.io/portfolio/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+img{max-width:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: an architecture sheet. A blueprint-grid hero, then quiet sections; case studies read as request flows left to right. */
+:root{
+  --paper:#F3F6FA; --surface:#FFFFFF; --ink:#0D1B2E; --muted:#56677D; --rule:#D5DDE8;
+  --accent:#1E56D0; --accent-soft:#E3EBFB; --signal:#B4630F; --grid:rgba(30,86,208,.07);
+  --display:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0A111D; --surface:#101A2A; --ink:#E4EBF5; --muted:#8FA0B6; --rule:#213149;
+  --accent:#79A2FF; --accent-soft:#16264A; --signal:#F0A04B; --grid:rgba(121,162,255,.07); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0A111D; --surface:#101A2A; --ink:#E4EBF5; --muted:#8FA0B6; --rule:#213149;
+  --accent:#79A2FF; --accent-soft:#16264A; --signal:#F0A04B; --grid:rgba(121,162,255,.07); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em}
+h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font:800 17px/1 var(--display);color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
+.nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{border-bottom:1px solid var(--rule);background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.hero .wrap.main{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:56px;align-items:center;padding-block:72px 64px}
+.hero h1{font-size:clamp(44px,7.4vw,92px);font-weight:800;letter-spacing:-.035em;line-height:.95;margin-top:18px}
+.hero h1 .last{color:var(--accent)}
+.role{font:500 15px/1.5 var(--mono);color:var(--ink);margin-top:20px}
+.role span{color:var(--muted)}
+.lede{font-size:18px;color:var(--muted);max-width:60ch;margin-top:20px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:6px;font:600 15px/1 var(--body);text-decoration:none;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--paper)}
+.btn.ghost{color:var(--accent);background:transparent}
+.portrait{position:relative;justify-self:end;width:100%;max-width:360px}
+.portrait img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;border:1px solid var(--rule);background:var(--surface)}
+.portrait .tag{position:absolute;left:-14px;bottom:22px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 14px;font:500 12px/1.4 var(--mono);color:var(--muted);box-shadow:0 10px 30px -12px rgba(13,27,46,.35)}
+.portrait .tag b{display:block;color:var(--ink);font-weight:500}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1E9E5A;margin-right:6px;vertical-align:1px}
+
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--rule);background:var(--surface)}
+.stat{padding:22px 18px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font:800 30px/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:13px;color:var(--muted);margin-top:8px;line-height:1.35}
+
+section{padding-block:88px}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:36px;max-width:720px}
+.head p{color:var(--muted);font-size:17px}
+
+/* certifications */
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cert{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.cert .code{font:500 26px/1 var(--mono);color:var(--accent);letter-spacing:-.01em}
+.cert .lvl{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);border-radius:99px;padding:6px 9px;align-self:flex-start}
+.cert .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cert h3{font-size:18px;line-height:1.25}
+.cert .by{font-size:14px;color:var(--muted)}
+.cert a{margin-top:auto;font-size:14px;font-weight:600;text-decoration:none}
+.cert a:hover{text-decoration:underline}
+.cert.top-tier{border-color:color-mix(in srgb,var(--accent) 45%,var(--rule))}
+
+/* case studies */
+#work{background:var(--surface);border-block:1px solid var(--rule)}
+.explorer{display:grid;grid-template-columns:280px minmax(0,1fr);gap:32px;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:4px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px)}
+.tab{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:6px;border-left:2px solid transparent}
+.tab .k{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tab .t{font-weight:600;font-size:15px;line-height:1.3;color:var(--ink)}
+.tab:hover{background:var(--paper)}
+.tab[aria-selected="true"]{background:var(--accent-soft);border-left-color:var(--accent)}
+.tab[aria-selected="true"] .k{color:var(--accent)}
+.panel{min-width:0;display:flex;flex-direction:column;gap:28px}
+.panel .sub{font:500 13px/1.5 var(--mono);color:var(--muted)}
+.panel h3{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.02em}
+.panel .intro{font-size:17px;color:var(--muted);max-width:68ch}
+.blk-label{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.flow li{position:relative;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-20px;top:50%;width:14px;height:2px;background:var(--accent)}
+.flow li:not(:last-child)::before{content:"";position:absolute;right:-21px;top:calc(50% - 4px);border:5px solid transparent;border-left:6px solid var(--accent);border-right:0}
+.flow .n{font:500 11px/1 var(--mono);color:var(--accent)}
+.flow b{font-size:14px;line-height:1.3}
+.flow small{font-size:12.5px;color:var(--muted);line-height:1.45}
+
+.lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lane{border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.lane b{font-size:14px}
+.lane p{font-size:14px;color:var(--muted);line-height:1.5}
+
+.proof{background:var(--accent-soft);border-radius:8px;padding:20px 22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start}
+.proof .badge{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:6px 10px;white-space:nowrap}
+.proof p{font-size:15px;line-height:1.55}
+.proof.ref .badge{color:var(--muted);border-color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:400 12.5px/1 var(--mono);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:7px 9px}
+
+/* experience */
+.timeline{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.job{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;padding-block:32px;border-bottom:1px solid var(--rule)}
+.job .when{font:500 13px/1.6 var(--mono);color:var(--muted)}
+.job .when b{display:block;font:800 22px/1.2 var(--display);color:var(--ink);letter-spacing:-.01em;margin-bottom:6px}
+.job h3{font-size:19px;margin-bottom:12px}
+.job ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;max-width:72ch}
+.job li{color:var(--ink)}
+.job li::marker{color:var(--accent)}
+.num{font-weight:600;color:var(--signal);font-variant-numeric:tabular-nums}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.skill{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px;padding-block:16px;border-top:1px solid var(--rule)}
+.skill b{font-size:14px}
+.skill span{font-size:14px;color:var(--muted)}
+
+/* contact */
+#contact{background:var(--ink);color:var(--paper)}
+#contact .eyebrow{color:var(--paper);opacity:.7}
+#contact h2{color:var(--paper)}
+.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:end}
+.contact p.lead{font-size:18px;opacity:.8;max-width:52ch;margin-top:16px}
+.edu{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:8px;padding:20px}
+.edu .eyebrow{display:block;margin-bottom:10px}
+.edu b{display:block;font-size:17px}
+.edu span{font-size:14px;opacity:.75}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.links .btn{border-color:var(--paper);color:var(--paper)}
+.links .btn.primary{background:var(--paper);color:var(--ink)}
+footer{background:var(--ink);color:var(--paper);opacity:.6;font:400 12px/1 var(--mono)}
+footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--paper) 15%,transparent)}
+
+/* featured */
+#featured{padding-bottom:0}
+.feat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.fcard{all:unset;cursor:pointer;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:8px;overflow:hidden;transition:border-color .15s,transform .15s}
+.fcard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.fcard:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.fcard.lead{grid-column:span 2}
+.fcard img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#F5F7FB;border-bottom:1px solid var(--rule)}
+.fbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fbody .k{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fbody b{font:700 17px/1.25 var(--display);letter-spacing:-.01em}
+.fcard.lead .fbody b{font-size:22px}
+.fbody p{font-size:14px;color:var(--muted);line-height:1.5}
+.fbody .m{margin-top:auto;padding-top:8px;font:500 13px/1 var(--mono);color:var(--signal)}
+.fbody .m.ref{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.fcard{transition:none}.fcard:hover{transform:none}}
+.diagram{margin:0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:#F5F7FB}
+.diagram button{all:unset;cursor:zoom-in;display:block;width:100%}
+.diagram button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.diagram img{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.diagram figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 14px;background:var(--surface);border-top:1px solid var(--rule);font:400 12.5px/1.4 var(--mono);color:var(--muted)}
+.diagram figcaption a{text-decoration:none;font-weight:500}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(6,12,22,.88);display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;
+  padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lightbox img{max-width:100%;max-height:calc(100% - 56px);border-radius:6px;background:#fff;object-fit:contain}
+.lightbox .bar{display:flex;gap:12px;align-items:center}
+.lightbox button,.lightbox a{all:unset;cursor:pointer;color:#fff;font:500 14px/1 var(--body);padding:10px 14px;border:1px solid rgba(255,255,255,.4);border-radius:6px}
+.lightbox button:focus-visible,.lightbox a:focus-visible{outline:2px solid #fff}
+@media (max-width:960px){.feat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.feat{grid-template-columns:1fr}.fcard.lead{grid-column:auto}}
+
+@media (max-width:960px){
+  .hero .wrap.main{grid-template-columns:1fr;gap:40px;padding-block:48px}
+  .portrait{justify-self:start;max-width:300px}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat:nth-child(3){border-right:0}
+  .stat:nth-child(-n+3){border-bottom:1px solid var(--rule)}
+  .certs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .explorer{grid-template-columns:1fr}
+  .tabs{position:static;flex-direction:row;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px}
+  .tab{flex:0 0 auto;max-width:220px;border-left:0;border-bottom:2px solid transparent;border-radius:6px 6px 0 0}
+  .tab[aria-selected="true"]{border-bottom-color:var(--accent)}
+  .skills{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .flow{grid-template-columns:1fr;gap:22px}
+  .flow li:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-17px;width:2px;height:12px}
+  .flow li:not(:last-child)::before{right:auto;left:20px;top:auto;bottom:-22px;border:5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+}
+@media (max-width:640px){
+  .nav{display:none}
+  section{padding-block:60px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{border-right:1px solid var(--rule)!important;border-bottom:1px solid var(--rule)}
+  .stat:nth-child(2n){border-right:0!important}
+  .stat:nth-last-child(-n+2){border-bottom:0}
+  .certs{grid-template-columns:1fr}
+  
+  .flow li:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-17px;width:2px;height:12px}
+  .flow li:not(:last-child)::before{right:auto;left:20px;top:auto;bottom:-22px;border:5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+  .lanes{grid-template-columns:1fr}
+  .proof{grid-template-columns:1fr;gap:10px}
+  .proof .badge{justify-self:start}
+  .job{grid-template-columns:1fr;gap:14px}
+  .skill{grid-template-columns:1fr;gap:4px}
+  .portrait .tag{left:12px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Syed Muhammad <span>Hamza</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#featured">Featured</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#work">Case studies</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap main">
+    <div>
+      <div class="eyebrow">Cloud &amp; DevOps Engineer · Islamabad, Pakistan</div>
+      <h1>Syed Muhammad <span class="last">Hamza</span></h1>
+      <p class="role">AWS · Microsoft Azure · Oracle Cloud <span>/</span> Kubernetes · Terraform · CI/CD</p>
+      <p class="lede">I run and secure hybrid cloud platforms for 700 users and 400+ servers, and build the automation that ships software faster. Five years across AWS, Azure, OCI and on-premises, from Kubernetes delivery pipelines to GPU virtual desktops and disaster recovery.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">View case studies</a>
+        <a class="btn ghost" href="#certifications">See certifications</a>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <img src="images/portrait.jpg" width="480" height="640" alt="Portrait of Syed Muhammad Hamza">
+      <figcaption class="tag"><span class="dot" aria-hidden="true"></span>Open to roles<b>UAE · KSA · EU · Canada · Australia · USA</b></figcaption>
+    </figure>
+  </div>
+  <div class="wrap" style="padding-left:0;padding-right:0">
+    <div class="stats">
+      <div class="stat"><b>5+</b><span>years in cloud, DevOps and enterprise IT</span></div>
+      <div class="stat"><b>82%</b><span>faster deployments through pipeline automation</span></div>
+      <div class="stat"><b>30+</b><span>projects on CI/CD pipelines I built</span></div>
+      <div class="stat"><b>400+</b><span>servers monitored across on-prem and cloud</span></div>
+      <div class="stat"><b>60 TB</b><span>enterprise data under backup and DR</span></div>
+      <div class="stat"><b>100%</b><span>MFA coverage for 700 users</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="featured">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Featured work</div>
+      <h2>Architecture diagrams</h2>
+      <p>Seven designs I've drawn and documented. Open one to see how it works, step by step.</p>
+    </div>
+    <div class="feat">
+      <button class="fcard lead" data-case="4" aria-label="Open case study: Azure Virtual Desktop with GPU session hosts"><img src="images/case-4-thumb.webp" alt="Architecture diagram: Azure Virtual Desktop with GPU session hosts" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">Azure · End-user computing</span><b>Azure Virtual Desktop with GPU session hosts</b><p>GPU desktops for a graphics-heavy engineering app, built from one versioned golden image.</p><span class="m">80% faster host builds</span></span></button>
+      <button class="fcard" data-case="3" aria-label="Open case study: CI/CD: commit to production"><img src="images/case-3-thumb.webp" alt="Architecture diagram: CI/CD: commit to production" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">DevOps</span><b>CI/CD: commit to production</b><p>Build, quality gates, security scans and GitOps releases with automatic rollback.</p><span class="m">82% faster deployments</span></span></button>
+      <button class="fcard" data-case="6" aria-label="Open case study: Zero Trust for Microsoft 365 and Azure"><img src="images/case-6-thumb.webp" alt="Architecture diagram: Zero Trust for Microsoft 365 and Azure" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">Security</span><b>Zero Trust for Microsoft 365 and Azure</b><p>Identity, device health and sign-in risk checked before every access.</p><span class="m">100% MFA · 700 users</span></span></button>
+      <button class="fcard" data-case="7" aria-label="Open case study: Business continuity and DR on Azure"><img src="images/case-7-thumb.webp" alt="Architecture diagram: Business continuity and DR on Azure" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">Resilience</span><b>Business continuity and DR on Azure</b><p>Cross-region failover, replicated data and immutable backups.</p><span class="m">60 TB protected</span></span></button>
+      <button class="fcard" data-case="1" aria-label="Open case study: Production Kubernetes platform on EKS"><img src="images/case-1-thumb.webp" alt="Architecture diagram: Production Kubernetes platform on EKS" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">AWS · Kubernetes</span><b>Production Kubernetes platform on EKS</b><p>Three-AZ microservices with edge security, autoscaling and Argo CD.</p><span class="m ref">EKS · Karpenter · Argo CD</span></span></button>
+      <button class="fcard" data-case="2" aria-label="Open case study: Hybrid multi-cloud infrastructure"><img src="images/case-2-thumb.webp" alt="Architecture diagram: Hybrid multi-cloud infrastructure" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">Azure · AWS · On-prem</span><b>Hybrid multi-cloud infrastructure</b><p>Datacenter, Azure hub-and-spoke and AWS joined with one identity.</p><span class="m">400+ servers monitored</span></span></button>
+      <button class="fcard" data-case="5" aria-label="Open case study: Azure landing zone and governance"><img src="images/case-5-thumb.webp" alt="Architecture diagram: Azure landing zone and governance" loading="lazy" width="800" height="450"><span class="fbody"><span class="k">Azure · Governance</span><b>Azure landing zone and governance</b><p>Management groups, policy guardrails, PIM and centralized security.</p><span class="m ref">Policy · PIM · Sentinel</span></span></button>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Certifications</div>
+      <h2>Six cloud certifications, two at expert level</h2>
+      <p>Verified credentials from AWS and Microsoft, covering DevOps, solution architecture, administration, virtual desktop and AI app development.</p>
+    </div>
+    <div class="certs">
+      <article class="cert top-tier">
+        <div class="row"><span class="code">DOP-C02</span><span class="lvl">Professional</span></div>
+        <div><h3>AWS Certified DevOps Engineer – Professional</h3><p class="by">Amazon Web Services</p></div>
+        <a href="https://www.credly.com/badges/a65f62a8-85a3-4782-99d2-0e777523f5a5/linked_in_profile" target="_blank" rel="noopener">Verify credential ↗</a>
+      </article>
+      <article class="cert top-tier">
+        <div class="row"><span class="code">AZ-305</span><span class="lvl">Expert</span></div>
+        <div><h3>Azure Solutions Architect Expert</h3><p class="by">Microsoft</p></div>
+        <a href="https://learn.microsoft.com/en-us/users/syedmuhammadhumza-8145/credentials/6e8c28f4a5ba4077" target="_blank" rel="noopener">Verify credential ↗</a>
+      </article>
+      <article class="cert top-tier">
+        <div class="row"><span class="code">AZ-400</span><span class="lvl">Expert</span></div>
+        <div><h3>DevOps Engineer Expert</h3><p class="by">Microsoft</p></div>
+        <a href="https://learn.microsoft.com/en-us/users/syedmuhammadhumza-8145/credentials/f36e63eaf0818fa1" target="_blank" rel="noopener">Verify credential ↗</a>
+      </article>
+      <article class="cert">
+        <div class="row"><span class="code">AZ-140</span><span class="lvl">Specialty</span></div>
+        <div><h3>Azure Virtual Desktop Specialty</h3><p class="by">Microsoft</p></div>
+        <a href="https://learn.microsoft.com/en-us/users/syedmuhammadhumza-8145/credentials/dc6a0bc16b83d482" target="_blank" rel="noopener">Verify credential ↗</a>
+      </article>
+      <article class="cert">
+        <div class="row"><span class="code">AI-103</span><span class="lvl">Associate</span></div>
+        <div><h3>Azure AI Apps and Agents Developer Associate</h3><p class="by">Microsoft</p></div>
+        <a href="https://learn.microsoft.com/en-us/users/syedmuhammadhumza-8145/credentials/10788ea7e5b71c81" target="_blank" rel="noopener">Verify credential ↗</a>
+      </article>
+      <article class="cert">
+        <div class="row"><span class="code">AZ-104</span><span class="lvl">Associate</span></div>
+        <div><h3>Azure Administrator Associate</h3><p class="by">Microsoft</p></div>
+        <a href="https://learn.microsoft.com/api/credentials/share/en-us/SyedMuhammadHumza-8145/B3FFEB8EAE63B2A1?sharingId=524CC31537BFC7AD" target="_blank" rel="noopener">Verify credential ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Architecture case studies</div>
+      <h2>How the platforms work, end to end</h2>
+      <p>Seven designs across cloud platforms, hybrid networking, delivery automation, end-user computing, governance, security and recovery. Each shows the request path, the supporting controls and where I have run it in production.</p>
+    </div>
+    <div class="explorer">
+      <div class="tabs" role="tablist" aria-label="Case studies">
+        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><span class="k">AWS · Kubernetes</span><span class="t">Production Kubernetes platform on EKS</span></button>
+        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="k">Azure · AWS · On-prem</span><span class="t">Hybrid multi-cloud infrastructure</span></button>
+        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span class="k">DevOps</span><span class="t">CI/CD from commit to production</span></button>
+        <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><span class="k">Azure · End-user computing</span><span class="t">Azure Virtual Desktop with GPU hosts</span></button>
+        <button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1"><span class="k">Azure · Governance</span><span class="t">Azure landing zone and governance</span></button>
+        <button class="tab" role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1"><span class="k">Security</span><span class="t">Zero Trust for Microsoft 365 and Azure</span></button>
+        <button class="tab" role="tab" id="t7" aria-controls="p7" aria-selected="false" tabindex="-1"><span class="k">Resilience</span><span class="t">Business continuity and disaster recovery</span></button>
+      </div>
+
+      <div>
+      <!-- 1 EKS -->
+      <article class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <div><p class="sub">Amazon EKS · High availability · GitOps · Infrastructure as code</p><h3>Production Kubernetes platform on AWS</h3></div>
+        <p class="intro">A highly available microservices platform spread across three Availability Zones. Traffic is filtered at the edge, routed into private EKS subnets and scaled automatically, while every change arrives through a Git-driven pipeline.</p>
+        <figure class="diagram"><button data-full="images/case-1.webp" aria-label="Enlarge diagram: Production Kubernetes platform on AWS"><img src="images/case-1.webp" alt="Architecture diagram: Production Kubernetes platform on AWS" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-1.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">Request path</div>
+        <ol class="flow">
+          <li><span class="n">01 · Edge</span><b>CloudFront + WAF + Shield</b><small>Caches content close to users and blocks attacks and DDoS before traffic reaches the VPC.</small></li>
+          <li><span class="n">02 · Load balancing</span><b>Application Load Balancer</b><small>Spreads requests across healthy nodes in all three AZs.</small></li>
+          <li><span class="n">03 · Ingress</span><b>NGINX Ingress on EKS</b><small>Routes each path to the right service inside private subnets.</small></li>
+          <li><span class="n">04 · Compute</span><b>Pods with HPA + Karpenter</b><small>HPA adds pods under load; Karpenter adds right-sized nodes when pods can't be placed.</small></li>
+          <li><span class="n">05 · Data</span><b>Aurora · ElastiCache · S3</b><small>Multi-AZ database, in-memory cache and object storage.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Delivery</b><p>GitHub Actions builds and tests, pushes images to ECR, and Argo CD syncs the cluster to Git. Terraform provisions the VPC, EKS and data tier.</p></div>
+          <div class="lane"><b>Security</b><p>IRSA gives each workload its own IAM role. Secrets live in Secrets Manager and data is encrypted with KMS keys.</p></div>
+          <div class="lane"><b>Observability</b><p>Prometheus and Grafana for cluster and app metrics, CloudWatch for AWS services and logs.</p></div>
+          <div class="lane"><b>Resilience</b><p>Every tier runs in three AZs, so losing one zone doesn't take the platform down.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At Sintov I containerized applications with Docker and ran them on Amazon EKS and ECS, keeping production Kubernetes available through replication, stress testing and custom autoscaling.</p></div>
+        <div class="chips"><span class="chip">Amazon EKS</span><span class="chip">EC2</span><span class="chip">Aurora</span><span class="chip">ElastiCache</span><span class="chip">S3</span><span class="chip">CloudFront</span><span class="chip">WAF</span><span class="chip">Shield</span><span class="chip">ALB</span><span class="chip">NGINX</span><span class="chip">Argo CD</span><span class="chip">Terraform</span></div>
+      </article>
+
+      <!-- 2 Hybrid -->
+      <article class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <div><p class="sub">Microsoft Azure + AWS + on-premises · Secure connectivity · Unified operations</p><h3>Hybrid multi-cloud infrastructure</h3></div>
+        <p class="intro">An on-premises datacenter, an Azure hub-and-spoke network and AWS workloads joined into one secure, centrally managed environment with a single identity.</p>
+        <figure class="diagram"><button data-full="images/case-2.webp" aria-label="Enlarge diagram: Hybrid multi-cloud infrastructure"><img src="images/case-2.webp" alt="Architecture diagram: Hybrid multi-cloud infrastructure" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-2.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">Connection path</div>
+        <ol class="flow">
+          <li><span class="n">01 · Datacenter</span><b>On-premises servers</b><small>Existing workloads, Active Directory and file services.</small></li>
+          <li><span class="n">02 · Link</span><b>ExpressRoute / IPsec VPN</b><small>Private, encrypted path from the datacenter into Azure.</small></li>
+          <li><span class="n">03 · Azure hub</span><b>Azure Firewall + Bastion</b><small>All traffic is inspected centrally; admins reach VMs without public IPs.</small></li>
+          <li><span class="n">04 · Azure spokes</span><b>AKS · Azure SQL · Key Vault</b><small>Workloads sit in isolated spokes peered to the hub.</small></li>
+          <li><span class="n">05 · AWS</span><b>Transit Gateway → EKS, EC2, RDS, S3</b><small>Encrypted Azure-to-AWS site-to-site VPN lands on a Transit Gateway that connects AWS VPCs.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Identity</b><p>Microsoft Entra ID is the single sign-in, with SSO and MFA federated to AWS IAM Identity Center.</p></div>
+          <div class="lane"><b>Operations</b><p>Terraform builds both clouds; Azure Arc brings on-prem and AWS servers into Azure management.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At LMKR I run site-to-site VPNs between on-premises and AWS/Azure, monitor 400+ servers (300 on-prem, 100+ cloud) with SCOM, Azure Monitor and CloudWatch, and run an OCI load balancer with SSL across 30 VMs.</p></div>
+        <div class="chips"><span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">Entra ID</span><span class="chip">IAM Identity Center</span><span class="chip">AKS</span><span class="chip">EKS</span><span class="chip">Transit Gateway</span><span class="chip">ExpressRoute</span><span class="chip">VPN</span><span class="chip">Terraform</span><span class="chip">Azure Arc</span></div>
+      </article>
+
+      <!-- 3 CI/CD -->
+      <article class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <div><p class="sub">Jenkins or GitHub Actions · Secure build · GitOps deployment</p><h3>CI/CD automation: commit to production</h3></div>
+        <p class="intro">A delivery pipeline that takes a code change through build, quality and security checks, then releases it to Kubernetes in controlled stages with automatic rollback.</p>
+        <figure class="diagram"><button data-full="images/case-3.webp" aria-label="Enlarge diagram: CI/CD automation: commit to production"><img src="images/case-3.webp" alt="Architecture diagram: CI/CD automation: commit to production" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-3.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">Pipeline stages</div>
+        <ol class="flow">
+          <li><span class="n">01 · Commit</span><b>Push to Git</b><small>A commit or pull request triggers Jenkins or GitHub Actions.</small></li>
+          <li><span class="n">02 · Build &amp; test</span><b>Maven build + unit tests</b><small>Runs on parallel build agents so pipelines finish faster.</small></li>
+          <li><span class="n">03 · Quality &amp; security</span><b>SonarQube + Snyk</b><small>The build stops if code quality or dependency vulnerabilities fail the gate.</small></li>
+          <li><span class="n">04 · Package</span><b>Docker image → ECR / ACR</b><small>A versioned image is pushed to the container registry.</small></li>
+          <li><span class="n">05 · Release</span><b>Argo CD + Helm</b><small>Promotes Dev → Staging → Production with approval gates.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Safe releases</b><p>Blue/green or canary rollouts with health checks; a failed check rolls back automatically.</p></div>
+          <div class="lane"><b>Infrastructure</b><p>Terraform keeps each environment identical, so what passes in Staging behaves the same in Production.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At Sintov I built and maintained CI/CD for <span class="num">30+</span> projects with Jenkins, GitHub Actions and parallel build agents, and made deployments <span class="num">82%</span> faster.</p></div>
+        <div class="chips"><span class="chip">Jenkins</span><span class="chip">GitHub Actions</span><span class="chip">Maven</span><span class="chip">SonarQube</span><span class="chip">Snyk</span><span class="chip">Docker</span><span class="chip">ECR / ACR</span><span class="chip">Argo CD</span><span class="chip">Helm</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span></div>
+      </article>
+
+      <!-- 4 AVD -->
+      <article class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+        <div><p class="sub">Secure end-user computing · Graphics-intensive workloads · Golden image</p><h3>Azure Virtual Desktop with GPU session hosts</h3></div>
+        <p class="intro">Secure remote access to a graphics-heavy engineering application. Users sign in once, pass identity checks, and land on standard or NVIDIA GPU session hosts built from one versioned image.</p>
+        <figure class="diagram"><button data-full="images/case-4.webp" aria-label="Enlarge diagram: Azure Virtual Desktop with GPU session hosts"><img src="images/case-4.webp" alt="Architecture diagram: Azure Virtual Desktop with GPU session hosts" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-4.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">Sign-in path</div>
+        <ol class="flow">
+          <li><span class="n">01 · User</span><b>AVD client or browser</b><small>The user opens their assigned desktop or app.</small></li>
+          <li><span class="n">02 · Identity</span><b>Entra ID + Conditional Access</b><small>SSO, MFA and policy checks before any session starts.</small></li>
+          <li><span class="n">03 · Control plane</span><b>AVD broker + gateway</b><small>Microsoft-managed service picks the least-busy host.</small></li>
+          <li><span class="n">04 · Host pools</span><b>Standard + NVIDIA GPU hosts</b><small>Pooled hosts; GPU VMs run the graphics workload.</small></li>
+          <li><span class="n">05 · Profile</span><b>FSLogix profile</b><small>The user's profile attaches at sign-in, so any host feels like their own.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Golden image</b><p>One image is captured and versioned in Azure Compute Gallery; new hosts are built from it instead of configured by hand.</p></div>
+          <div class="lane"><b>Management</b><p>Intune applies device policy, scaling plans power hosts up and down by demand, and Azure Monitor with Log Analytics tracks sessions.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At LMKR I designed and deployed AVD for <span class="num">50</span> users on <span class="num">50</span> session hosts, including GPU hosts. The golden-image approach cut host build time by <span class="num">80%</span>.</p></div>
+        <div class="chips"><span class="chip">Azure Virtual Desktop</span><span class="chip">Entra ID</span><span class="chip">Conditional Access</span><span class="chip">Intune</span><span class="chip">FSLogix</span><span class="chip">Compute Gallery</span><span class="chip">GPU VMs</span><span class="chip">Azure Monitor</span><span class="chip">Log Analytics</span></div>
+      </article>
+
+      <!-- 5 Landing zone -->
+      <article class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+        <div><p class="sub">Enterprise foundation · Management groups · Policy guardrails</p><h3>Azure landing zone and cloud governance</h3></div>
+        <p class="intro">An enterprise Azure foundation where every new workload lands in a subscription that already has networking, security, logging and cost controls in place.</p>
+        <figure class="diagram"><button data-full="images/case-5.webp" aria-label="Enlarge diagram: Azure landing zone and cloud governance"><img src="images/case-5.webp" alt="Architecture diagram: Azure landing zone and cloud governance" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-5.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">How a workload is onboarded</div>
+        <ol class="flow">
+          <li><span class="n">01 · Hierarchy</span><b>Management groups</b><small>Platform and workload subscriptions sit under one governed tree.</small></li>
+          <li><span class="n">02 · Guardrails</span><b>Azure Policy</b><small>Mandatory tags, allowed regions and SKUs are enforced on every resource.</small></li>
+          <li><span class="n">03 · Access</span><b>RBAC + PIM</b><small>Least privilege; admin roles are activated just in time with MFA.</small></li>
+          <li><span class="n">04 · Network</span><b>Hub-and-spoke</b><small>Azure Firewall, VPN/ExpressRoute and private endpoints in the hub.</small></li>
+          <li><span class="n">05 · Operate</span><b>Logging + security</b><small>Log Analytics, Defender for Cloud and Sentinel watch every subscription.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Cost control</b><p>Budgets and alerts per subscription, with tags that show who owns what.</p></div>
+          <div class="lane"><b>As code</b><p>The whole foundation is deployed with Bicep and Terraform, so it can be rebuilt or extended the same way.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At LMKR I manage Azure VMs, storage, Application Gateway/WAF, Site Recovery and Azure DevOps, and I'm moving privileged roles into PIM with MFA on activation. Backed by the Azure Solutions Architect Expert (AZ-305) certification.</p></div>
+        <div class="chips"><span class="chip">Management Groups</span><span class="chip">Azure Policy</span><span class="chip">RBAC</span><span class="chip">PIM</span><span class="chip">Azure Firewall</span><span class="chip">ExpressRoute</span><span class="chip">Log Analytics</span><span class="chip">Defender for Cloud</span><span class="chip">Sentinel</span><span class="chip">Bicep</span><span class="chip">Terraform</span></div>
+      </article>
+
+      <!-- 6 Zero trust -->
+      <article class="panel" role="tabpanel" id="p6" aria-labelledby="t6" hidden>
+        <div><p class="sub">Identity-first security · Least privilege · Detect and respond</p><h3>Zero Trust for Microsoft 365 and Azure</h3></div>
+        <p class="intro">Every sign-in is checked for who the user is, how healthy their device is and how risky the sign-in looks before access is granted to Microsoft 365, Azure or business apps.</p>
+        <figure class="diagram"><button data-full="images/case-6.webp" aria-label="Enlarge diagram: Zero Trust for Microsoft 365 and Azure"><img src="images/case-6.webp" alt="Architecture diagram: Zero Trust for Microsoft 365 and Azure" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-6.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">Access decision</div>
+        <ol class="flow">
+          <li><span class="n">01 · Sign-in</span><b>User + device</b><small>A user signs in from any device or location.</small></li>
+          <li><span class="n">02 · Signals</span><b>Intune + Entra ID Protection</b><small>Device compliance and sign-in risk are collected.</small></li>
+          <li><span class="n">03 · Policy</span><b>Conditional Access</b><small>Allow, step up to MFA, or block high-risk sign-ins.</small></li>
+          <li><span class="n">04 · Access</span><b>Least-privilege resources</b><small>RBAC and PIM limit what each user can do once inside.</small></li>
+          <li><span class="n">05 · Detect</span><b>Defender + Sentinel</b><small>Threats are detected, investigated and answered centrally.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Data protection</b><p>Sensitivity labels and DLP stop sensitive files leaving; Purview governs data across the estate.</p></div>
+          <div class="lane"><b>Secrets and network</b><p>Key Vault holds keys and secrets; private endpoints keep services off the public internet.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At LMKR I enforced MFA for <span class="num">100%</span> of <span class="num">700</span> users across Microsoft applications using Conditional Access, together with SSO and Entra ID Protection policies.</p></div>
+        <div class="chips"><span class="chip">Entra ID</span><span class="chip">Conditional Access</span><span class="chip">Intune</span><span class="chip">PIM</span><span class="chip">Defender</span><span class="chip">Sentinel</span><span class="chip">Purview</span><span class="chip">Key Vault</span><span class="chip">DLP</span></div>
+      </article>
+
+      <!-- 7 BCDR -->
+      <article class="panel" role="tabpanel" id="p7" aria-labelledby="t7" hidden>
+        <div><p class="sub">Cross-region resilience · Backup protection · Tested recovery runbooks</p><h3>Business continuity and disaster recovery on Azure</h3></div>
+        <p class="intro">A cross-region design built around agreed recovery objectives: traffic fails over automatically, data is replicated and backed up in protected form, and recovery steps are documented and tested.</p>
+        <figure class="diagram"><button data-full="images/case-7.webp" aria-label="Enlarge diagram: Business continuity and disaster recovery on Azure"><img src="images/case-7.webp" alt="Architecture diagram: Business continuity and disaster recovery on Azure" loading="lazy" width="2048" height="1152"></button><figcaption><span>Architecture diagram · select to enlarge</span><a href="images/case-7.webp" target="_blank" rel="noopener">Open full size ↗</a></figcaption></figure>
+        <div><div class="blk-label">Failover path</div>
+        <ol class="flow">
+          <li><span class="n">01 · Users</span><b>Azure Front Door</b><small>Health probes watch the primary region continuously.</small></li>
+          <li><span class="n">02 · Detect</span><b>Primary region fails</b><small>Probes fail and Front Door shifts traffic automatically.</small></li>
+          <li><span class="n">03 · Compute</span><b>Azure Site Recovery</b><small>Replicated VMs start in the secondary region from a recovery plan.</small></li>
+          <li><span class="n">04 · Data</span><b>SQL failover groups + GZRS</b><small>The database fails over; storage is already geo-redundant.</small></li>
+          <li><span class="n">05 · Recover</span><b>Backup Center</b><small>Immutable, soft-deleted backups protect against ransomware and mistakes.</small></li>
+        </ol></div>
+        <div class="lanes">
+          <div class="lane"><b>Assurance</b><p>Azure Monitor alerts on replication and backup health; Azure Policy makes sure new resources are protected.</p></div>
+          <div class="lane"><b>Runbooks</b><p>Documented, tested recovery plans so failover is a known procedure, not an improvisation.</p></div>
+        </div>
+        <div class="proof"><span class="badge">In production</span><p>At LMKR I protect <span class="num">60 TB</span> of enterprise data (50 TB on-prem, 10 TB cloud) with Azure Backup, AWS Backup, Veeam and DPM 2025, on IBM tape libraries, Dell EMC Unity SAN and TrueNAS, and I manage Azure Site Recovery.</p></div>
+        <div class="chips"><span class="chip">Azure Front Door</span><span class="chip">Site Recovery</span><span class="chip">Azure SQL</span><span class="chip">GZRS</span><span class="chip">Azure Backup</span><span class="chip">Backup Center</span><span class="chip">Azure Monitor</span><span class="chip">Azure Policy</span></div>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Experience</div>
+      <h2>Five years from pipelines to platforms</h2>
+    </div>
+    <div class="timeline">
+      <div class="job">
+        <div class="when"><b>LMKR</b>Aug 2024 – Present<br>Islamabad, Pakistan</div>
+        <div><h3>System and Cloud Engineer</h3>
+        <ul>
+          <li>Designed and deployed Azure Virtual Desktop for 50 users on 50 session hosts, including GPU hosts; a golden image cut host build time by <span class="num">80%</span>.</li>
+          <li>Enforced MFA for <span class="num">100%</span> of 700 users through Conditional Access, SSO and Entra ID Protection.</li>
+          <li>Protect <span class="num">60 TB</span> of data with Azure Backup, AWS Backup, Veeam and DPM 2025 on tape, Dell EMC Unity SAN and TrueNAS.</li>
+          <li>Monitor <span class="num">400+</span> servers across on-prem and cloud with SCOM, Azure Monitor and CloudWatch.</li>
+          <li>Run OCI services: an SSL load balancer across 30 VMs, firewall, automated backups and alerts.</li>
+          <li>Manage Azure (VMs, Storage, Application Gateway/WAF, Site Recovery, Azure DevOps) and AWS (EC2, S3, IAM, Backup); build site-to-site VPNs to both clouds.</li>
+          <li>Administer Windows Server, Linux, Hyper-V and SCCM, and automate routine work with PowerShell and Bash.</li>
+        </ul></div>
+      </div>
+      <div class="job">
+        <div class="when"><b>Sintov</b>Nov 2022 – Jul 2024<br>Lahore, Pakistan</div>
+        <div><h3>DevOps Engineer</h3>
+        <ul>
+          <li>Made deployments <span class="num">82%</span> faster through pipeline automation and optimization.</li>
+          <li>Built and maintained CI/CD for <span class="num">30+</span> projects with Jenkins, GitHub Actions and parallel build agents.</li>
+          <li>Containerized applications with Docker and ran them on Amazon EKS and ECS.</li>
+          <li>Kept production Kubernetes available through replication, stress testing and custom autoscaling.</li>
+          <li>Provisioned infrastructure with AWS CloudFormation across EC2, VPC, RDS, DynamoDB, S3, Lambda, API Gateway, Route 53 and IAM.</li>
+          <li>Migrated applications to AWS and worked with engineering on deployment strategy, access and audit needs.</li>
+        </ul></div>
+      </div>
+      <div class="job">
+        <div class="when"><b>ibex</b>Jan 2021 – Oct 2022<br>Lahore, Pakistan</div>
+        <div><h3>DevOps Engineer</h3>
+        <ul>
+          <li>Built, configured and optimized CI/CD pipelines in Jenkins and GitHub Actions.</li>
+          <li>Released and maintained production system configurations using configuration management.</li>
+          <li>Managed source-code repositories, branching strategy and version control.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Skills</div>
+      <h2>Tools I work with every week</h2>
+    </div>
+    <div class="skills">
+      <div class="skill"><b>Cloud platforms</b><span>AWS, Microsoft Azure, Oracle Cloud (OCI), hybrid cloud</span></div>
+      <div class="skill"><b>DevOps &amp; IaC</b><span>Jenkins, GitHub Actions, Azure DevOps, Terraform, CloudFormation, Bicep, Ansible</span></div>
+      <div class="skill"><b>Containers</b><span>Docker, Kubernetes, Amazon EKS, Amazon ECS, AKS, Helm, Argo CD</span></div>
+      <div class="skill"><b>Identity &amp; security</b><span>Entra ID, Active Directory, IAM, SSO, MFA, Conditional Access, PIM, WAF</span></div>
+      <div class="skill"><b>Infrastructure</b><span>Windows Server 2022/2025, Linux, Hyper-V, Azure Virtual Desktop, GPU hosts</span></div>
+      <div class="skill"><b>Monitoring &amp; DR</b><span>Azure Monitor, CloudWatch, SCOM, Azure Backup, AWS Backup, Veeam, DPM, Site Recovery</span></div>
+      <div class="skill"><b>Networking</b><span>DNS, DHCP, TCP/IP, VLANs, site-to-site VPN, SSL/TLS, load balancing</span></div>
+      <div class="skill"><b>Automation &amp; AI</b><span>PowerShell, Bash, Claude, GitHub Copilot, Microsoft Foundry</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2 style="margin-top:12px">Hiring for cloud or DevOps?</h2>
+      <p class="lead">I'm open to Cloud, DevOps and Platform Engineering roles in the UAE, Saudi Arabia, Europe, Canada, Australia and the USA, on-site or remote.</p>
+      <div class="links">
+        <!-- EDIT: replace the example email and LinkedIn link with your own -->
+        <a class="btn primary" href="mailto:you@example.com">you@example.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-profile/" target="_blank" rel="noopener">LinkedIn profile ↗</a>
+      </div>
+    </div>
+    <div class="edu">
+      <span class="eyebrow">Education</span>
+      <b>BS Computer Science</b>
+      <span>The Islamia University of Bahawalpur, Pakistan · 2016 – 2020</span>
+    </div>
+  </div>
+</section>
+</main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Diagram" hidden>
+  <img id="lbimg" alt="">
+  <div class="bar"><a id="lbopen" href="#" target="_blank" rel="noopener">Open full size ↗</a><button id="lbclose">Close</button></div>
+</div>
+<footer><div class="wrap">Syed Muhammad Hamza · Cloud &amp; DevOps Engineer · Hosted on GitHub Pages, deployed with GitHub Actions</div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(t,focus){
+    tabs.forEach(function(x){
+      var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
+    });
+    if(focus)t.focus();
+    if(window.matchMedia('(max-width:960px)').matches)t.scrollIntoView({block:'nearest',inline:'nearest'});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowDown'||k==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(k==='ArrowUp'||k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      if(n){e.preventDefault();select(n,true)}
+    });
+  });
+
+  // featured cards open their case study
+  [].slice.call(document.querySelectorAll('.fcard')).forEach(function(c){
+    c.addEventListener('click',function(){
+      var t=document.getElementById('t'+c.dataset.case);select(t);
+      document.getElementById('work').scrollIntoView({block:'start'});
+    });
+  });
+  // lightbox
+  var lb=document.getElementById('lightbox'),img=document.getElementById('lbimg'),op=document.getElementById('lbopen'),cl=document.getElementById('lbclose'),last=null;
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+  [].slice.call(document.querySelectorAll('.diagram button')).forEach(function(b){
+    b.addEventListener('click',function(){last=b;img.src=b.dataset.full;img.alt=b.querySelector('img').alt;op.href=b.dataset.full;lb.hidden=false;document.body.style.overflow='hidden';cl.focus()});
+  });
+  cl.addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close()});
+})();
+</script>
+
+</body>
+</html>
